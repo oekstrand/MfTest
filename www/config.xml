@@ -12,8 +12,8 @@
   </author>
   <content src="index.html"/>
   <icon src="icon.png" />
-  <icon src="icon-60.png" gap:platform="ios" width="60" height="60" />
-  <icon src="icon-60@2x.png" gap:platform="ios" width="120" height="120" />
+  <!--<icon src="icon-60.png" gap:platform="ios" width="60" height="60" />
+  <icon src="icon-60@2x.png" gap:platform="ios" width="120" height="120" />-->
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
