@@ -1,0 +1,17 @@
+/* Empty. Add your own CSS if you like */
+.login-content {
+    /*background-image: url('../img/symbol.png');
+    background-repeat: no-repeat;
+    background-position: -480px -480px;
+    -ms-background-size: 960px 960px;
+    background-size: 960px 960px;*/
+    background-color: #eee;
+}
+
+.bar.bar-stable.mf-nav {
+    background-color: #002d6a;
+}
+
+.bar.bar-stable.mf-nav .title {
+    color: white;
+}
