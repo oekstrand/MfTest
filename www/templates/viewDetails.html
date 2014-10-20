@@ -1,0 +1,25 @@
+<ion-view title="view.displayName">
+    <ion-content class="padding login-content">
+        <div class="container body-content">
+            <div class="filter-box">
+                <input type="text" class="form-control" placeholder="Search" ng-model="filterText" />
+            </div>
+            <div class="list-group" ng-show="view.workItems.length > 0">
+                <div ng-repeat="statusGroup in statusGroups">
+                    <div class="list-group-item list-divider">{{statusGroup[0].status.displayName}}</div>
+                    <a ng-repeat="workItem in statusGroup | filter:filterText" class="list-group-item fixed-height-item" ng-click="startLoad()" ng-href="#/incident/{{workItem.internalId}}">
+                        <span class="badge badge-important">{{workItem.status.displayName | limitTo:1}}</span>
+                        <p>
+                            {{workItem.affectedUserDisplayName + '&nbsp; &#8226;'}}
+                            {{workItem.createdDate | date : 'EEE, MMM d, y'}}
+                        </p>
+                        <h5>{{workItem.displayName}}</h5>
+                        <div>
+                            {{workItem.description}}
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

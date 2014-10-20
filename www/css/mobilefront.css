@@ -15,3 +15,6 @@
 .bar.bar-stable.mf-nav .title {
     color: white;
 }
+.bar.bar-stable.mf-nav ion-nav-back-button{
+    color: white;
+}

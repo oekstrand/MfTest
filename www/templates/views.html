@@ -1,0 +1,10 @@
+<ion-view title="Home" >
+    <ion-content class="padding">
+        <ion-list ng-show="views.length > 0">
+            <ion-item ng-repeat="view in views" ng-href="#/views/{{view.name}}">
+                <span class="badge badge-positive">{{view.count}}</span>
+                <h3>{{view.displayName}}</h3>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,19 +1,20 @@
-<ion-view title="Login">
+<ion-view title="Login" hide-nav-bar="true">
     <ion-content class="padding login-content">
-        <br/>
-        <br/>
+        <br />
+        <br />
         <h2>Please sign in</h2>
         <div class="list">
             <label class="item item-input">
-                <input type="text" placeholder="Customer ID">
+                <input type="text" ng-model="loginModel.customerId" placeholder="Customer ID">
             </label>
             <label class="item item-input">
-                <input type="text" placeholder="Domain\Username">
+                <input type="text" ng-model="loginModel.domainAndUsername" placeholder="Domain\Username">
             </label>
             <label class="item item-input">
-                <input type="text" placeholder="Password">
+                <input type="password" ng-model="loginModel.password" placeholder="Password">
             </label>
-            <button class="button button-positive button-block">
+            <ion-checkbox ng-model="rememberMe">Remember Me</ion-checkbox>
+            <button class="button button-positive button-block" ng-click="login()">
                 Sign in
             </button>
         </div>

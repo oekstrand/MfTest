@@ -14,13 +14,13 @@ angular.module('starter.services', [])
     { id: 3, name: 'Ash Ketchum' }
   ];
 
-  return {
-    all: function() {
-      return friends;
-    },
-    get: function(friendId) {
-      // Simple index lookup
-      return friends[friendId];
-    }
-  }
+    return {
+        all: function() {
+            return friends;
+        },
+        get: function(friendId) {
+            // Simple index lookup
+            return friends[friendId];
+        }
+    };
 });
