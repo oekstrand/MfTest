@@ -1,24 +1,36 @@
-<ion-view title="view.displayName">
-    <ion-content class="padding login-content">
-        <div class="container body-content">
-            <div class="filter-box">
-                <input type="text" class="form-control" placeholder="Search" ng-model="filterText" />
+<style>
+    .list-description-fixed-height {
+        height: 56px;
+        font-size: 12px;
+        -ms-word-wrap: break-word;
+        word-wrap: break-word;
+        overflow: hidden;
+    }
+
+    .list-fixed-height {
+        height: 140px;
+    }
+</style>
+<ion-view title="{{view.displayName}}">
+    <ion-content class="padding">
+        <!--" | filter:filterText-->
+
+        <div ng-show="view.workItems.length > 0" class="list item-text-wrap">
+            <div ng-repeat-start="statusGroup in statusGroups" ng-href="#/views/{{view.name}}" class="item item-divider">
+                {{statusGroup[0].status.displayName}}
             </div>
-            <div class="list-group" ng-show="view.workItems.length > 0">
-                <div ng-repeat="statusGroup in statusGroups">
-                    <div class="list-group-item list-divider">{{statusGroup[0].status.displayName}}</div>
-                    <a ng-repeat="workItem in statusGroup | filter:filterText" class="list-group-item fixed-height-item" ng-click="startLoad()" ng-href="#/incident/{{workItem.internalId}}">
-                        <span class="badge badge-important">{{workItem.status.displayName | limitTo:1}}</span>
-                        <p>
-                            {{workItem.affectedUserDisplayName + '&nbsp; &#8226;'}}
-                            {{workItem.createdDate | date : 'EEE, MMM d, y'}}
-                        </p>
-                        <h5>{{workItem.displayName}}</h5>
-                        <div>
-                            {{workItem.description}}
-                        </div>
-                    </a>
+            <div ng-repeat="workItem in statusGroup" class="item list-fixed-height">
+                <span class="badge badge-positive">{{workItem.status.displayName | limitTo:1}}</span>
+                <h6>
+                    {{workItem.affectedUserDisplayName + '&nbsp; &#8226;'}}
+                    {{workItem.createdDate | date : 'EEE, MMM d, y'}}
+                </h6>
+                <h2>{{workItem.displayName}}</h2>
+                <div class="list-description-fixed-height">
+                    {{workItem.description}}
                 </div>
+            </div>
+            <div ng-repeat-end>
             </div>
         </div>
     </ion-content>

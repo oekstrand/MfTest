@@ -20,7 +20,7 @@
                 if (!self.views.length) {
                     var token = localstorage.get("token");
                     var customerId = localstorage.get("customerId");
-                    $http.get("http://localhost:55611/api/Views/Index?token=" + token + "&customerId=" + customerId).then(function (response) {
+                    $http.get("http://192.168.2.94:55611/api/Views/Index?token=" + token + "&customerId=" + customerId).then(function (response) {
                         self.views = response.data.views;
                         defered.resolve(self.views);
                     }, function (response) {

@@ -36,7 +36,7 @@ angular.module('starter.controllers', [])
                 template: 'Loading...'
             });
 
-            $http.post("http://localhost:55611/api/Account/Login", $scope.loginModel).success(function (data) {
+            $http.post("http://192.168.2.94:55611/api/Account/Login", $scope.loginModel).success(function (data) {
                 if (data.loginSuccessful) {
                     localstorage.set('token', data.tokenGuid);
                     localstorage.set('customerId', $scope.loginModel.customerId);
@@ -51,42 +51,42 @@ angular.module('starter.controllers', [])
 
             });
         };
-    }])
+    }]).
+
+controller("ViewDetailsCtrl", ['$http', '$scope', '$location', 'viewService', '$stateParams', function ($http, $scope, $location, viewService, $stateParams) {
+    $scope.statusGroups = {};
+    $scope.view = {};
+    $scope.headerText = '';
+    $scope.filter = '';
+    var self = this;
+
+    this.groupViewsByStatus = function () {
+        for (var i = 0; i < $scope.view.workItems.length; i++) {
+            var currentItem = $scope.view.workItems[i];
+            if ($scope.statusGroups[currentItem.status.displayName] === undefined) {
+                $scope.statusGroups[currentItem.status.displayName] = [];
+            }
+            $scope.statusGroups[currentItem.status.displayName].push(currentItem);
+        }
+    };
+
+    $scope.startLoading = function () {
+        //loadingService.startLoading();
+    };
+
+    $scope.loadView = function () {
+        viewService.getViewByName($stateParams.viewName).then(function (data) {
+            $scope.view = data;
+            self.groupViewsByStatus();
+        }, function (data) {
+            $location.path('/login');
+        });
+    };
+
+    $scope.loadView();
+}])
 
 .controller('AccountCtrl', function ($scope) {
 });
 
 
-
-//controllers.controller("ViewDetailsCtrl", ['$http', '$scope', '$location', 'viewService', '$routeParams', function ($http, $scope, $location, viewService, $routeParams) {
-//    $scope.statusGroups = {};
-//    $scope.view = {};
-//    $scope.headerText = '';
-//    $scope.filter = '';
-//    var self = this;
-
-//    this.groupViewsByStatus = function () {
-//        for (var i = 0; i < $scope.view.workItems.length; i++) {
-//            var currentItem = $scope.view.workItems[i];
-//            if ($scope.statusGroups[currentItem.status.displayName] === undefined) {
-//                $scope.statusGroups[currentItem.status.displayName] = [];
-//            }
-//            $scope.statusGroups[currentItem.status.displayName].push(currentItem);
-//        }
-//    };
-
-//    $scope.startLoading = function () {
-//        //loadingService.startLoading();
-//    };
-
-//    $scope.loadView = function () {
-//        viewService.getViewByName($routeParams.viewName).then(function (data) {
-//            $scope.view = data;
-//            self.groupViewsByStatus();
-//        }, function (data) {
-//            $location.path('/login');
-//        });
-//    };
-
-//    $scope.loadView();
-//}])
