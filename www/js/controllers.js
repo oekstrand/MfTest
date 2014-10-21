@@ -36,7 +36,7 @@ angular.module('starter.controllers', [])
                 template: 'Loading...'
             });
 
-            $http.post("http://192.168.2.94:55611/api/Account/Login", $scope.loginModel).success(function (data) {
+            $http.post("https://mobilefronttest.azurewebsites.net/api/Account/Login", $scope.loginModel).success(function (data) {
                 if (data.loginSuccessful) {
                     localstorage.set('token', data.tokenGuid);
                     localstorage.set('customerId', $scope.loginModel.customerId);

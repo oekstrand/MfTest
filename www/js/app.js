@@ -20,6 +20,8 @@ angular.module('mobileFrontApp', ['ionic', 'starter.controllers', 'starter.servi
         });
     })
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
         //Enable cross domain calls
         //$httpProvider.defaults.useXDomain = true;
 
