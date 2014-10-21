@@ -14,3 +14,15 @@
 .bar.bar-stable.mf-nav ion-nav-back-button{
     color: white;
 }
+
+.list-description-fixed-height {
+        height: 56px;
+        font-size: 12px;
+        -ms-word-wrap: break-word;
+        word-wrap: break-word;
+        overflow: hidden;
+    }
+
+    .list-fixed-height {
+        height: 140px;
+    }
