@@ -15,7 +15,7 @@
             $scope.openMenu = function () {
                 $ionicActionSheet.show({
                     buttons: [
-                        { text: 'Refresh' },
+                        { text: '<p class="">Refresh<p>' },
                         { text: 'Settings' },
                         { text: 'Logout' }
                     ],
