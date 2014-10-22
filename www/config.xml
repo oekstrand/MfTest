@@ -20,9 +20,10 @@
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
   <gap:platform name="ios"></gap:platform>
+  <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
   <preference name="BackupWebStorage" value="none"/>
   <feature name="StatusBar">
-    <param name="ios-package" value="CDVStatusBar" onload="true"/>
+    <param name="ios-package" value="org.apache.cordova.statusbar" onload="true"/>
   </feature>
 </widget>
 
