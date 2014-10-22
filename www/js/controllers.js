@@ -1,17 +1,5 @@
-angular.module('starter.controllers', [])
+angular.module('mobileFront.controllers', [])
 
-.controller("ViewsCtrl", ['$http', '$scope', '$state', 'viewService', function ($http, $scope, $state, viewService) {
-    $scope.views = [];
-    $scope.loadViews = function () {
-        viewService.getViews().then(function (data) {
-            $scope.views = data;
-        }, function (data) {
-            $state.go('login');
-        });
-    };
-
-    $scope.loadViews();
-}])
     .controller("LoginCtrl", ['$http', '$scope', '$state', 'viewService', 'loadingService', 'localstorage', '$ionicLoading', function ($http, $scope, $state, viewService, loadingService, localstorage, $ionicLoading) {
         $scope.loginModel = {
             customerId: "wsxEDC",
