@@ -2,9 +2,14 @@
     <ion-content class="padding">
         <ion-list ng-show="views.length > 0">
             <ion-item ng-repeat="view in views" ng-href="#/views/{{view.name}}">
-                <span class="badge badge-positive">{{view.count}}</span>
+                <span class="badge badge-royal">{{view.count}}</span>
                 <h3>{{view.displayName}}</h3>
             </ion-item>
         </ion-list>
     </ion-content>
+    <div class="bar bar-footer bar-stable">
+        <button class="button button-clear button-dark icon ion-plus"></button>
+        
+        <button class="button button-clear button-dark icon ion-navicon" on-tap="openMenu()"></button>
+    </div>
 </ion-view>

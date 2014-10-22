@@ -5,7 +5,7 @@
             modalInstance: {},
             startLoading: function() {
                 $ionicLoading.show({
-                    template: 'Loading...'
+                    template: '<div class="icon ion-loading-c"></div>'
                 });  
             },
             stopLoading: function () {

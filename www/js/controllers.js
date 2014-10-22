@@ -11,22 +11,26 @@ angular.module('mobileFront.controllers', [])
         $scope.login = function () {
             //loadingService.startLoading();
             $ionicLoading.show({
-                template: 'Loading...'
+                template: '<i class="icon ion-loading-c button-icon"></i>'
             });
 
-            $http.post("https://mobilefronttest.azurewebsites.net/api/Account/Login", $scope.loginModel).success(function (data) {
+            $http.post("https://mobilefronttest.azurewebsites.net/api/Account/Login", $scope.loginModel).success(function(data) {
                 if (data.loginSuccessful) {
                     localstorage.set('token', data.tokenGuid);
                     localstorage.set('customerId', $scope.loginModel.customerId);
-                    viewService.getViews().then(function (response) {
+                    viewService.getViews().then(function(response) {
                         $scope.views = response;
                         $state.go('views');
                         //loadingService.stopLoading();
                         $ionicLoading.hide();
                     });
+                } else {
+                    $ionicLoading.hide();
                 }
                 //TODO: Change so that the login function also loads the views
 
+            }).error(function (data, status, headers, config) {
+                $ionicLoading.hide();
             });
         };
     }]).

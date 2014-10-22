@@ -8,6 +8,11 @@ angular.module('mobileFrontApp', ['ionic', 'mobileFront.controllers'])
                 StatusBar.hide();
             }
         });
+    }).run(function ($rootScope, $state) {
+        $rootScope.$on('$stateChangeError', function (e, toState, toParams, fromState, fromParams, error) {
+            //TODO: Implement error handling
+            return $state.go('login');
+        });
     })
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
         $httpProvider.defaults.useXDomain = true;
