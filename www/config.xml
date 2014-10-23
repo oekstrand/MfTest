@@ -15,6 +15,7 @@
   <icon src="icon-60.png" gap:platform="ios" width="60" height="60" />
   <icon src="icon-60@2x.png" gap:platform="ios" width="120" height="120" />
   <gap:splash src="mobilefront.png" gap:platform="ios" width="640" height="1136" />
+  <gap:splash src="mobilefront.png" gap:platform="winphone" />
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
