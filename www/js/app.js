@@ -8,7 +8,7 @@ angular.module('mobileFrontApp', ['ionic', 'mobileFront.controllers'])
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             }
-            ionic.Platform.fullScreen();
+            //ionic.Platform.fullScreen();
             //if ($cordovaStatusbar)
             //    $cordovaStatusbar.hide();
             //if (window.StatusBar) {
