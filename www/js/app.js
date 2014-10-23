@@ -1,5 +1,5 @@
 angular.module('mobileFrontApp', ['ionic', 'mobileFront.controllers'])
-    .run(function ($ionicPlatform, ionic) {
+    .run(function ($ionicPlatform) {
         ionic.Platform.ready(function () {
             ionic.Platform.fullScreen(true, true);
         });
