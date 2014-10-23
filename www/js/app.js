@@ -1,5 +1,9 @@
 angular.module('mobileFrontApp', ['ionic', 'mobileFront.controllers'])
-    .run(function ($ionicPlatform) {
+    .run(function ($ionicPlatform, ionic) {
+        ionic.Platform.ready(function () {
+            ionic.Platform.fullScreen(true, true);
+        });
+
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -11,7 +15,8 @@ angular.module('mobileFrontApp', ['ionic', 'mobileFront.controllers'])
             //    StatusBar.hide();
             //}
         });
-    }).run(function ($rootScope, $state) {
+    })
+    .run(function ($rootScope, $state) {
         $rootScope.$on('$stateChangeError', function (e, toState, toParams, fromState, fromParams, error) {
             //TODO: Implement error handling
             return $state.go('login');
