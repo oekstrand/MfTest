@@ -25,7 +25,6 @@
   <gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
     <false/>
   </gap:config-file>
-  
   <gap:platform name="ios"></gap:platform>
   <gap:platform name="winphone" />
   <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
