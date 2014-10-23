@@ -7,7 +7,7 @@
                 {{statusGroup[0].status.displayName}}
             </div>
             <div ng-repeat="workItem in statusGroup" class="item list-fixed-height">
-                <span class="badge badge-positive">{{workItem.status.displayName | limitTo:1}}</span>
+                <span class="badge badge-royal">{{workItem.status.displayName | limitTo:1}}</span>
                 <h6>
                     {{workItem.affectedUserDisplayName + '&nbsp; &#8226;'}}
                     {{workItem.createdDate | date : 'EEE, MMM d, y'}}
